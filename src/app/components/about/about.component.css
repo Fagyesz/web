@@ -1,0 +1,25 @@
+/* Custom styles for the about component */
+
+/* Add a subtle background color to the page */
+:host {
+  display: block;
+  background-color: #f9fafb;
+  min-height: 100%;
+}
+
+/* Style for section headings */
+h2 {
+  color: #1e3a8a;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+/* Add hover effect to leadership cards */
+.bg-white.rounded-lg.shadow-md.overflow-hidden {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.bg-white.rounded-lg.shadow-md.overflow-hidden:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+} 

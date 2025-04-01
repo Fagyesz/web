@@ -1,0 +1,74 @@
+/* Custom styles for the sermons component */
+
+/* Add a subtle background color to the page */
+:host {
+  display: block;
+  background-color: #f9fafb;
+  min-height: 100%;
+}
+
+/* Style for section headings */
+h2 {
+  color: #1e3a8a;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+/* Sermon series card hover effect */
+.bg-white.rounded-lg.shadow-md.overflow-hidden {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bg-white.rounded-lg.shadow-md.overflow-hidden:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Play button hover effect */
+.absolute.inset-0 button {
+  transform: scale(1);
+  transition: transform 0.2s ease;
+}
+
+.absolute.inset-0 button:hover {
+  transform: scale(1.1);
+}
+
+/* Filter buttons interaction */
+.bg-blue-600, .bg-gray-100 {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-blue-600::after, .bg-gray-100::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.bg-blue-600:focus::after, .bg-gray-100:focus::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+} 

@@ -1,0 +1,108 @@
+<div class="container mx-auto px-4 py-12">
+  <div class="max-w-5xl mx-auto">
+    <!-- Page Title -->
+    <h1 class="text-3xl font-bold text-center mb-8">{{ 'services.title' | translate }}</h1>
+    
+    <!-- Services Overview -->
+    <section class="mb-12">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <p class="text-lg mb-4">{{ 'services.overview' | translate }}</p>
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+          <div class="text-center p-4">
+            <div class="rounded-full bg-blue-100 p-4 w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">{{ 'services.sunday-worship.title' | translate }}</h3>
+            <p>{{ 'services.sunday-worship.time' | translate }}</p>
+          </div>
+          
+          <div class="text-center p-4">
+            <div class="rounded-full bg-blue-100 p-4 w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">{{ 'services.bible-study.title' | translate }}</h3>
+            <p>{{ 'services.bible-study.time' | translate }}</p>
+          </div>
+          
+          <div class="text-center p-4">
+            <div class="rounded-full bg-blue-100 p-4 w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">{{ 'services.prayer-meeting.title' | translate }}</h3>
+            <p>{{ 'services.prayer-meeting.time' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Sunday Worship Details -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">{{ 'services.sunday-worship.details.title' | translate }}</h2>
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/2 mb-6 md:mb-0 md:pr-6">
+            <img src="assets/images/worship-service.jpg" alt="Sunday Worship" class="rounded-lg shadow-md">
+          </div>
+          <div class="md:w-1/2">
+            <p class="mb-4">{{ 'services.sunday-worship.details.description' | translate }}</p>
+            <h3 class="text-xl font-semibold mb-2">{{ 'services.what-to-expect' | translate }}</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>{{ 'services.sunday-worship.details.expect1' | translate }}</li>
+              <li>{{ 'services.sunday-worship.details.expect2' | translate }}</li>
+              <li>{{ 'services.sunday-worship.details.expect3' | translate }}</li>
+              <li>{{ 'services.sunday-worship.details.expect4' | translate }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Bible Study Details -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">{{ 'services.bible-study.details.title' | translate }}</h2>
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/2 md:pr-6">
+            <p class="mb-4">{{ 'services.bible-study.details.description' | translate }}</p>
+            <h3 class="text-xl font-semibold mb-2">{{ 'services.current-study' | translate }}</h3>
+            <p class="mb-6">{{ 'services.bible-study.details.current-topic' | translate }}</p>
+            <div class="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
+              <p class="italic">{{ 'services.bible-study.details.quote' | translate }}</p>
+            </div>
+          </div>
+          <div class="md:w-1/2 mt-6 md:mt-0">
+            <img src="assets/images/bible-study.jpg" alt="Bible Study" class="rounded-lg shadow-md">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Prayer Meeting Details -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">{{ 'services.prayer-meeting.details.title' | translate }}</h2>
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/2 mb-6 md:mb-0 md:pr-6">
+            <img src="assets/images/prayer-meeting.jpg" alt="Prayer Meeting" class="rounded-lg shadow-md">
+          </div>
+          <div class="md:w-1/2">
+            <p class="mb-4">{{ 'services.prayer-meeting.details.description' | translate }}</p>
+            <h3 class="text-xl font-semibold mb-2">{{ 'services.prayer-meeting.details.topics' | translate }}</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>{{ 'services.prayer-meeting.details.topic1' | translate }}</li>
+              <li>{{ 'services.prayer-meeting.details.topic2' | translate }}</li>
+              <li>{{ 'services.prayer-meeting.details.topic3' | translate }}</li>
+              <li>{{ 'services.prayer-meeting.details.topic4' | translate }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

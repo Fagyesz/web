@@ -1,0 +1,270 @@
+{
+  "nav": {
+    "home": "Főoldal",
+    "about": "Rólunk",
+    "services": "Istentiszteletek",
+    "events": "Események",
+    "sermons": "Prédikációk",
+    "contact": "Kapcsolat",
+    "login": "Bejelentkezés",
+    "logout": "Kijelentkezés",
+    "dashboard": "Vezérlőpult",
+    "settings": "Beállítások"
+  },
+  "settings": {
+    "title": "Beállítások",
+    "language": "Nyelv",
+    "debug-mode": "Hibakeresési mód",
+    "debug-description": "Részletes hibakeresési információkat mutat az alkalmazás teljes területén. Ez a mód csak a munkatársak számára érhető el.",
+    "enable-debug": "Hibakeresési mód bekapcsolása",
+    "disable-debug": "Hibakeresési mód kikapcsolása",
+    "account": "Fiók",
+    "staff-account": "Munkatársi fiók",
+    "login-required": "A fiókbeállítások eléréséhez be kell jelentkeznie.",
+    "login": "Bejelentkezés",
+    "logout": "Kijelentkezés",
+    "admin": "Admin felület"
+  },
+  "languages": {
+    "en": "Angol",
+    "hu": "Magyar"
+  },
+  "home": {
+    "welcome": "Üdvözöljük a Bapti Magyar Baptista Gyülekezetben",
+    "service-times": "Istentiszteleti Alkalmak",
+    "sunday-morning": "Vasárnap délelőtt - 10:00",
+    "sunday-evening": "Vasárnap este - 18:00",
+    "wednesday": "Szerda bibliaóra - 19:00"
+  },
+  "about": {
+    "title": "Gyülekezetünkről",
+    "history": {
+      "title": "Történetünk",
+      "p1": "A Bapti Magyar Baptista Gyülekezetet 1995-ben alapította egy kis csoport magyar bevándorló, akik olyan istentiszteleti helyet kívántak létrehozni, amely megőrzi kulturális örökségüket, miközben terjeszti az evangéliumot.",
+      "p2": "Az évek során gyülekezetünk 15 tagról több mint 200 főre növekedett. Áldottak voltunk, hogy bővíthettük létesítményeinket és szolgálatainkat, hogy mind a magyar közösséget, mind a szélesebb helyi lakosságot szolgáljuk.",
+      "p3": "Történelmünk során elkötelezettek maradtunk alapító elveink mellett: hit, közösségi szolgálat és a magyar baptista hagyományok megőrzése."
+    },
+    "beliefs": {
+      "title": "Hitvalásunk",
+      "intro": "Baptista gyülekezetként ragaszkodunk a keresztény hit alapvető tanításaihoz. Íme néhány alapvető hitelvünk:",
+      "item1": "A Biblia Isten ihletett és tévedhetetlen Igéje.",
+      "item2": "Az üdvösség egyedül a Jézus Krisztusba vetett hit által nyerhető el.",
+      "item3": "A hívők bemerítése a hit nyilvános megvallása.",
+      "item4": "Az egyház a hívők közössége, akik istentiszteletre, közösségre és szolgálatra hivatottak.",
+      "item5": "Elkötelezettek vagyunk az evangélium terjesztése mellett misszió és evangelizáció által."
+    },
+    "leadership": {
+      "title": "Vezetőségünk",
+      "pastor": {
+        "name": "Smith János Lelkipásztor",
+        "title": "Vezető Lelkipásztor",
+        "bio": "János lelkipásztor 15 éve szolgálja gyülekezetünket. Teológiai mesterfokozattal rendelkezik, és szenvedélyesen foglalkozik az igehirdetéssel és a lelkipásztori gondoskodással."
+      },
+      "elder": {
+        "name": "Nagy Mihály Presbiter",
+        "title": "Gyülekezeti Presbiter",
+        "bio": "Mihály presbiter gyülekezetünk oszlopa az alapítás óta. Bölcsessége és a gyülekezet iránti elkötelezettsége átsegített minket a növekedés számos időszakán."
+      }
+    },
+    "services": {
+      "title": "Istentiszteleti Időpontok",
+      "sunday-morning": "Vasárnap Délelőtti Istentisztelet",
+      "sunday-morning-time": "10:00 - 11:30",
+      "sunday-evening": "Vasárnap Esti Istentisztelet",
+      "sunday-evening-time": "18:00 - 19:30",
+      "wednesday": "Szerda Esti Bibliaóra",
+      "wednesday-time": "19:00 - 20:30"
+    }
+  },
+  "events": {
+    "title": "Gyülekezeti Események",
+    "upcoming": "Közelgő Események",
+    "calendar": "Havi Naptár",
+    "past": "Korábbi Események",
+    "learn-more": "Tudj meg többet",
+    "load-more": "További események betöltése",
+    "add-to-calendar": "Hozzáadás naptárhoz",
+    "google-calendar": "Google Naptár",
+    "download-ics": ".ics Fájl Letöltése",
+    "try-again": "Próbáld újra",
+    "loading": "Események betöltése...",
+    "error": "Hiba történt az események betöltésekor. Kérjük, próbálja újra később.",
+    "no-events": "Nem találhatók események.",
+    "today": "Ma",
+    "location": "Helyszín",
+    "time": "Időpont",
+    "sunday-service": "Vasárnapi Istentisztelet",
+    "special-event": "Különleges Esemény"
+  },
+  "services": {
+    "title": "Istentiszteletek",
+    "overview": "Csatlakozz hozzánk istentiszteletre és közösségre a Bapti Magyar Baptista Gyülekezetben. Különböző alkalmakat kínálunk lelki életed táplálására.",
+    "sunday-worship": {
+      "title": "Vasárnapi Istentisztelet",
+      "time": "10:00 - 11:30",
+      "details": {
+        "title": "Vasárnapi Istentiszteleti Alkalom",
+        "description": "Vasárnapi istentiszteleteink olyan alkalmak, amikor közösségként jövünk össze, hogy Istent dicsőítsük zenével, imádsággal és Isten Igéjének tanításával. Az alkalmak általában 90 percig tartanak.",
+        "expect1": "Felemelő dicsőítő zene, amely ötvözi a hagyományos énekeket és a kortárs dalokat",
+        "expect2": "Bibliai alapú, gyakorlati tanítás az Igéből",
+        "expect3": "Barátságos fogadtatás és közösségi együttlét",
+        "expect4": "Gyermekprogram és bölcsőde minden istentiszteleten"
+      }
+    },
+    "bible-study": {
+      "title": "Bibliatanulmány",
+      "time": "Szerda 19:00",
+      "details": {
+        "title": "Szerdai Bibliaóra",
+        "description": "A hét közbeni bibliatanulmányozásaink meghittebb környezetet biztosítanak Isten Igéjének mélyebb tanulmányozásához, kérdésekhez, megbeszéléshez és imádsághoz.",
+        "current-topic": "Jelenleg a Római levelet tanulmányozzuk, Pál tanításait kutatva az üdvösségről, igazságosságról és a hit általi életről.",
+        "quote": "Mert nem szégyenlem az evangéliumot, hiszen Isten ereje az minden hívőnek üdvösségére. - Róma 1:16"
+      }
+    },
+    "prayer-meeting": {
+      "title": "Imaóra",
+      "time": "Péntek 19:00",
+      "details": {
+        "title": "Közösségi Imaalkalom",
+        "description": "Az imádság központi eleme hitünknek és gyülekezeti életünknek. Hetente összegyűlünk, hogy imádkozzunk a gyülekezetért, a közösségért és a világért.",
+        "topics": "Imatémák",
+        "topic1": "Gyülekezeti szolgálatok és vezetőség",
+        "topic2": "Közösségi evangelizáció és helyi szükségletek",
+        "topic3": "Misszionáriusok és globális missziók",
+        "topic4": "Személyes kérések és szükségletek"
+      }
+    },
+    "what-to-expect": "Mire számíthatsz",
+    "current-study": "Jelenlegi Tanulmány Téma"
+  },
+  "admin": {
+    "dashboard": "Admin Vezérlőpult",
+    "events": "Események Kezelése",
+    "news": "Hírek Kezelése",
+    "add-new": "Új hozzáadása",
+    "edit": "Szerkesztés",
+    "save": "Mentés",
+    "cancel": "Mégse",
+    "delete": "Törlés",
+    "confirm-delete": "Biztos benne, hogy törli ezt az elemet?",
+    "loading": "Betöltés...",
+    "error": {
+      "general": "Hiba történt. Kérjük, próbálja újra.",
+      "loading": "Hiba az adatok betöltésekor. Kérjük, próbálja újra.",
+      "saving": "Hiba az adatok mentésekor. Kérjük, próbálja újra.",
+      "deleting": "Hiba az adatok törlésekor. Kérjük, próbálja újra."
+    },
+    "success": {
+      "save": "Sikeres mentés!",
+      "delete": "Sikeres törlés!"
+    },
+    "events-management": {
+      "title": "Esemény címe",
+      "description": "Leírás",
+      "date": "Dátum",
+      "time": "Időpont",
+      "location": "Helyszín",
+      "image": "Esemény képe"
+    },
+    "news-management": {
+      "title": "Hír címe",
+      "content": "Hír tartalma",
+      "date": "Megjelenés dátuma"
+    },
+    "change-image": "Kép cseréje",
+    "select-image": "Kép kiválasztása",
+    "saving": "Mentés...",
+    "role-management": "Felhasználói Jogosultságok Kezelése",
+    "role-management.description": "Felhasználói jogosultságok és hozzáférések kezelése a gyülekezeti weboldalhoz",
+    "user": "Felhasználó",
+    "email": "Email",
+    "current-role": "Jelenlegi Jogosultság",
+    "actions": "Műveletek",
+    "change-role": "Jogosultság Módosítása",
+    "change-role-to": "Jogosultság módosítása erre",
+    "current": "jelenlegi",
+    "you": "Te",
+    "search-users": "Felhasználók keresése...",
+    "no-users-found": "Nem található felhasználó a rendszerben",
+    "roles": {
+      "info-title": "Jogosultság Információk",
+      "dev": "Fejlesztő",
+      "admin": "Adminisztrátor",
+      "staff": "Munkatárs",
+      "guest": "Vendég",
+      "dev-description": "Teljes hozzáférés minden rendszerfunkcióhoz, beleértve a fejlesztői eszközöket",
+      "admin-description": "Tartalom, felhasználók és gyülekezeti műveletek kezelése",
+      "staff-description": "Tartalom és események szerkesztése a gyülekezet számára",
+      "guest-description": "Alapvető hozzáférés a tag funkciókhoz"
+    },
+    "success": {
+      "role-updated": "{{user}} szerepköre módosítva: {{role}}"
+    },
+    "error": {
+      "insufficient-permissions": "Nincs jogosultsága ehhez a művelethez",
+      "updating-role": "Hiba a szerepkör frissítésekor",
+      "searching": "Hiba a felhasználók keresésekor"
+    },
+    "feature-unavailable": "Ez a funkció jelenleg nem elérhető vagy karbantartás alatt áll.",
+    "back-to-dashboard": "Vissza a Vezérlőpultra",
+    "upload-success": "Kép sikeresen feltöltve",
+    "upload-error": "Nem sikerült feltölteni a képet",
+    "uploading": "Feltöltés...",
+    "select-image": "Kattintson ide vagy húzza ide a fájlt a feltöltéshez",
+    "fix-cors": "CORS problémák megoldása"
+  },
+  "contact": {
+    "title": "Kapcsolat",
+    "get-in-touch": "Lépjen kapcsolatba velünk",
+    "address": "Cím",
+    "phone": "Telefon",
+    "email": "Email",
+    "send-message": "Üzenet küldése",
+    "your-name": "Az Ön neve",
+    "your-email": "Az Ön email címe",
+    "subject": "Tárgy",
+    "message": "Üzenet",
+    "sending": "Küldés...",
+    "send": "Küldés",
+    "thank-you": "Köszönjük üzenetét. Hamarosan válaszolunk.",
+    "view-map": "Megtekintés a Google Térképen",
+    "office-hours": "Irodai órák"
+  },
+  "login": {
+    "staff-only": "Csak munkatársaknak",
+    "email": "Email Cím",
+    "password": "Jelszó",
+    "valid-email": "Kérjük, adjon meg egy érvényes email címet",
+    "password-required": "A jelszó megadása kötelező",
+    "logging-in": "Bejelentkezés...",
+    "or": "VAGY",
+    "continue-with-google": "Folytatás Google-fiókkal"
+  },
+  "sermons": {
+    "title": "Prédikációk",
+    "current-series": "Aktuális Sorozat",
+    "filter": "Prédikációk Szűrése",
+    "recent": "Legutóbbi Prédikációk",
+    "view-series": "Sorozat Megtekintése",
+    "download": "Letöltés",
+    "share": "Megosztás",
+    "view-sermon": "Prédikáció Megtekintése",
+    "speaker": "Igehirdető",
+    "series": "Sorozat",
+    "topic": "Téma",
+    "all-speakers": "Összes Igehirdető",
+    "all-series": "Összes Sorozat",
+    "all-topics": "Összes Téma",
+    "apply-filter": "Szűrő Alkalmazása",
+    "reset": "Visszaállítás"
+  },
+  "footer": {
+    "rights": "Minden Jog Fenntartva",
+    "privacy": "Adatvédelmi Irányelvek",
+    "terms": "Felhasználási Feltételek"
+  },
+  "church": {
+    "name": "Új Élet Baptista Gyülekezet",
+    "short_name": "Bapti"
+  }
+} 

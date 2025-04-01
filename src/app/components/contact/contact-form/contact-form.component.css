@@ -1,0 +1,16 @@
+/* Additional custom styles for the contact form if needed */
+
+/* Focused input styles can be customized further if needed */
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+/* Custom transitions for form elements */
+button, input, textarea {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Add a subtle hover effect to form inputs */
+input:hover, textarea:hover {
+  border-color: #4b70bf;
+} 

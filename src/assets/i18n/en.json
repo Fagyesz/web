@@ -1,0 +1,312 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "events": "Events",
+    "sermons": "Sermons",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout",
+    "dashboard": "Dashboard",
+    "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "debug-mode": "Debug Mode",
+    "debug-description": "Show detailed debug information throughout the application. This mode is only available for staff members.",
+    "enable-debug": "Enable Debug Mode",
+    "disable-debug": "Disable Debug Mode",
+    "account": "Account",
+    "staff-account": "Staff Account",
+    "login-required": "You need to log in to access account settings.",
+    "login": "Log In",
+    "logout": "Log Out",
+    "admin": "Admin Panel"
+  },
+  "languages": {
+    "en": "English",
+    "hu": "Hungarian"
+  },
+  "home": {
+    "welcome": "Welcome to the Új Élet Baptista Gyülekezet",
+    "join-us": "Join us for worship every Sunday at 10:00 AM",
+    "upcoming-events": "Upcoming Events",
+    "recent-sermons": "Recent Sermons",
+    "read-more": "Read More",
+    "watch-sermon": "Watch Sermon"
+  },
+  "about": {
+    "title": "About Our Church",
+    "history": {
+      "title": "Our History",
+      "p1": "The Bapti Hungarian Baptist Church was founded in 1995 by a small group of Hungarian immigrants seeking to establish a place of worship that preserved their cultural heritage while sharing the gospel.",
+      "p2": "Over the years, our congregation has grown from just 15 members to over 200 today. We've been blessed to expand our facilities and our ministries to serve both the Hungarian community and the broader local population.",
+      "p3": "Throughout our history, we have remained committed to our founding principles of faith, community service, and preserving Hungarian Baptist traditions."
+    },
+    "beliefs": {
+      "title": "Our Beliefs",
+      "intro": "As a Baptist church, we hold to the fundamental beliefs of the Christian faith. Here are some of our core beliefs:",
+      "item1": "The Bible is the inspired and infallible Word of God.",
+      "item2": "Salvation comes through faith in Jesus Christ alone.",
+      "item3": "Baptism by immersion for believers is a public declaration of faith.",
+      "item4": "The church is a community of believers called to worship, fellowship, and service.",
+      "item5": "We are committed to spreading the gospel through missions and outreach."
+    },
+    "leadership": {
+      "title": "Our Leadership",
+      "pastor": {
+        "name": "Pastor John Smith",
+        "title": "Senior Pastor",
+        "bio": "Pastor John has served our congregation for 15 years. He holds a Master of Divinity degree and is passionate about expository preaching and pastoral care."
+      },
+      "elder": {
+        "name": "Elder Michael Nagy",
+        "title": "Church Elder",
+        "bio": "Elder Michael has been a pillar of our church since its founding. His wisdom and dedication to the congregation have guided us through many seasons of growth."
+      }
+    },
+    "services": {
+      "title": "Service Times",
+      "sunday-morning": "Sunday Morning Worship",
+      "sunday-morning-time": "10:00 AM - 11:30 AM",
+      "sunday-evening": "Sunday Evening Service",
+      "sunday-evening-time": "6:00 PM - 7:30 PM",
+      "wednesday": "Wednesday Bible Study",
+      "wednesday-time": "7:00 PM - 8:30 PM"
+    },
+    "our-church": "Our Church",
+    "our-history": "Our History",
+    "our-mission": "Our Mission",
+    "our-vision": "Our Vision",
+    "our-values": "Our Values",
+    "our-leadership": "Our Leadership",
+    "our-beliefs": "Our Beliefs"
+  },
+  "events": {
+    "title": "Events",
+    "upcoming": "Upcoming Events",
+    "past": "Past Events",
+    "calendar": "Calendar",
+    "learn-more": "Learn More",
+    "add-to-calendar": "Add to Calendar",
+    "google-calendar": "Add to Google Calendar",
+    "download-ics": "Download ICS File",
+    "try-again": "Try Again",
+    "no-events": "No upcoming events",
+    "check-back": "Please check back later for new events",
+    "no-upcoming": "No upcoming events scheduled at this time",
+    "loading": "Loading Events...",
+    "error": "There was an error loading events. Please try again later.",
+    "today": "Today",
+    "location": "Location",
+    "time": "Time",
+    "sunday-service": "Sunday Service",
+    "special-event": "Special Event",
+    "upcoming-events": "Upcoming Events",
+    "past-events": "Past Events",
+    "event-calendar": "Event Calendar",
+    "date": "Date",
+    "details": "Details",
+    "ical-download": "Download iCal",
+    "share-event": "Share Event"
+  },
+  "services": {
+    "title": "Our Services",
+    "overview": "Join us for worship and fellowship at Bapti Hungarian Baptist Church. We offer various services to nourish your spiritual life.",
+    "sunday-worship": {
+      "title": "Sunday Worship",
+      "time": "10:00 AM - 11:30 AM",
+      "details": {
+        "title": "Sunday Worship Service",
+        "description": "Our Sunday worship services are a time to come together as a community to worship God through music, prayer, and the teaching of God's Word. Services typically last about 90 minutes.",
+        "expect1": "Uplifting worship music blending traditional hymns and contemporary songs",
+        "expect2": "Scripture-based, practical teaching from the Bible",
+        "expect3": "Friendly welcome and community fellowship",
+        "expect4": "Children's program and nursery available for all services"
+      }
+    },
+    "bible-study": {
+      "title": "Bible Study",
+      "time": "Wednesdays at 7:00 PM",
+      "details": {
+        "title": "Wednesday Bible Study",
+        "description": "Our mid-week Bible studies provide a more intimate setting for deeper study of God's Word, questions, discussion, and prayer.",
+        "current-topic": "We are currently studying the Book of Romans, exploring Paul's teachings on salvation, righteousness, and living by faith.",
+        "quote": "For I am not ashamed of the gospel, because it is the power of God that brings salvation to everyone who believes. - Romans 1:16"
+      }
+    },
+    "prayer-meeting": {
+      "title": "Prayer Meeting",
+      "time": "Friday at 7:00 PM",
+      "details": {
+        "title": "Community Prayer Gathering",
+        "description": "Prayer is central to our faith and our church life. We gather weekly to lift up our church, community, and world in prayer.",
+        "topics": "Prayer Focus Areas",
+        "topic1": "Church ministries and leadership",
+        "topic2": "Community outreach and local needs",
+        "topic3": "Missionaries and global missions",
+        "topic4": "Personal needs and requests"
+      }
+    },
+    "what-to-expect": "What to Expect",
+    "current-study": "Current Study Topic",
+    "youth-ministry": "Youth Ministry",
+    "children-ministry": "Children's Ministry",
+    "music-ministry": "Music Ministry"
+  },
+  "admin": {
+    "dashboard": "Admin Dashboard",
+    "events": "Events Management",
+    "news": "News Management",
+    "roles": {
+      "info-title": "Role Information",
+      "dev": "Developer",
+      "admin": "Administrator",
+      "staff": "Staff",
+      "guest": "Guest",
+      "dev-description": "Full access to all system features including debugging tools",
+      "admin-description": "Manage content, users, and church operations",
+      "staff-description": "Edit content and events for the church",
+      "guest-description": "Basic access to member functions"
+    },
+    "role-management": "User Role Management",
+    "role-management.description": "Manage user roles and permissions for accessing the church website",
+    "user": "User",
+    "email": "Email",
+    "current-role": "Current Role",
+    "actions": "Actions",
+    "no-users-found": "No users found in the system",
+    "change-role": "Change Role",
+    "change-role-to": "Change role to",
+    "current": "current",
+    "you": "You",
+    "feature-unavailable": "This feature is currently unavailable or under maintenance.",
+    "back-to-dashboard": "Back to Dashboard",
+    "search-users": "Search users...",
+    "add-new": "Add New",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "confirm-delete": "Are you sure you want to delete this item?",
+    "loading": "Loading...",
+    "success": {
+      "save": "Successfully saved!",
+      "delete": "Successfully deleted!",
+      "role-updated": "{{user}}'s role updated to {{role}}"
+    },
+    "error": {
+      "general": "An error occurred. Please try again.",
+      "loading": "Error loading data. Please try again.",
+      "saving": "Error saving data. Please try again.",
+      "deleting": "Error deleting data. Please try again.",
+      "insufficient-permissions": "You don't have permission to perform this action",
+      "updating-role": "Error updating role",
+      "searching": "Error searching users"
+    },
+    "events-management": {
+      "title": "Event Management",
+      "form": {
+        "title": "Event Title",
+        "description": "Description",
+        "date": "Date",
+        "time": "Time",
+        "location": "Location",
+        "image": "Event Image"
+      }
+    },
+    "news-management": {
+      "title": "News Management",
+      "form": {
+        "title": "News Title",
+        "content": "News Content",
+        "date": "Publication Date"
+      }
+    },
+    "media-management": "Media Management",
+    "user-management": "User Management",
+    "settings": "Settings",
+    "change-image": "Change Image",
+    "select-image": "Select Image",
+    "saving": "Saving...",
+    "upload-success": "Image uploaded successfully",
+    "upload-error": "Failed to upload image",
+    "uploading": "Uploading...",
+    "select-image": "Click here or drop a file to upload an image",
+    "fix-cors": "Learn how to fix CORS issues"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "get-in-touch": "Get in Touch",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "send-message": "Send Message",
+    "your-name": "Your Name",
+    "your-email": "Your Email",
+    "subject": "Subject",
+    "message": "Message",
+    "sending": "Sending...",
+    "send": "Send",
+    "thank-you": "Thank you for your message. We will get back to you shortly.",
+    "view-map": "View on Google Maps",
+    "office-hours": "Office Hours"
+  },
+  "login": {
+    "staff-only": "Staff login area",
+    "email": "Email Address",
+    "password": "Password",
+    "valid-email": "Please enter a valid email address",
+    "password-required": "Password is required",
+    "logging-in": "Logging in...",
+    "or": "OR",
+    "continue-with-google": "Continue with Google"
+  },
+  "sermons": {
+    "title": "Sermons",
+    "current-series": "Current Series",
+    "filter": "Filter Sermons",
+    "recent": "Recent Sermons",
+    "view-series": "View Series",
+    "download": "Download",
+    "share": "Share",
+    "view-sermon": "View Sermon",
+    "speaker": "Speaker",
+    "series": "Series",
+    "topic": "Topic",
+    "all-speakers": "All Speakers",
+    "all-series": "All Series",
+    "all-topics": "All Topics",
+    "apply-filter": "Apply Filter",
+    "reset": "Reset",
+    "latest-sermons": "Latest Sermons",
+    "sermon-series": "Sermon Series",
+    "sermon-archive": "Sermon Archive",
+    "watch-now": "Watch Now",
+    "listen-now": "Listen Now",
+    "preacher": "Preacher",
+    "date": "Date",
+    "duration": "Duration",
+    "minutes": "minutes",
+    "related-sermons": "Related Sermons"
+  },
+  "footer": {
+    "rights": "All Rights Reserved",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "church": {
+    "name": "Új Élet Baptista Gyülekezet",
+    "short_name": "Bapti"
+  },
+  "dashboard": {
+    "welcome": "Welcome to the Admin Dashboard",
+    "events-management": "Events Management",
+    "news-management": "News Management",
+    "media-management": "Media Management",
+    "user-management": "User Management",
+    "settings": "Settings"
+  }
+} 

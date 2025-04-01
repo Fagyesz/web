@@ -1,0 +1,25 @@
+/* Settings menu dropdown styling */
+.absolute {
+  z-index: 50;
+}
+
+/* Animation for dropdown */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+div[role="menu"] {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Make language selector items show horizontally within the dropdown */
+:host ::ng-deep app-language-selector .language-selector {
+  display: flex;
+  gap: 0.5rem;
+}
+
+:host ::ng-deep app-language-selector button {
+  min-width: 2.5rem;
+  text-align: center;
+} 

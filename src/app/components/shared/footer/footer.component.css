@@ -1,0 +1,11 @@
+/* Additional custom styles for footer if needed */
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+  
+  .socials {
+    margin-top: 1.5rem;
+  }
+} 

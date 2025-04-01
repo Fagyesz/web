@@ -1,1 +1,102 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-color: #3b5998;
+  --secondary-color: #8b9dc3;
+  --accent-color: #dfe3ee;
+  --text-color: #333;
+  --light-text: #fff;
+  --background-color: #f7f7f7;
+  --border-color: #ddd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+main {
+  min-height: calc(100vh - 160px);
+  padding: 2rem 0;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--light-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+// Material Menu fixes
+.mat-mdc-menu-panel {
+  background-color: white !important;
+}
+
+.mat-mdc-menu-content {
+  background-color: white !important;
+}
+
+.mat-mdc-menu-item {
+  background-color: white !important;
+}
+
+.mat-mdc-menu-item.mdc-list-item:hover {
+  background-color: #f1f5f9 !important;
+}

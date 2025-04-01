@@ -1,0 +1,200 @@
+/* Custom styles for the events component */
+
+/* Add a subtle background color to the page */
+:host {
+  display: block;
+  background-color: #f9fafb;
+  min-height: 100%;
+}
+
+/* Style for section headings */
+h2 {
+  color: #1e3a8a;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+/* Hover effects for event cards */
+.bg-white.rounded-lg.shadow-md.overflow-hidden {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.bg-white.rounded-lg.shadow-md.overflow-hidden:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Interactive calendar day cells */
+.grid.grid-cols-7.gap-2.text-center > div {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.grid.grid-cols-7.gap-2.text-center > div:not(.text-gray-400):hover {
+  background-color: #dbeafe;
+  transform: scale(1.1);
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Today's date highlight */
+.grid.grid-cols-7.gap-2.text-center > div.today {
+  background-color: #3b82f6; /* Blue-500 */
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+/* Past events hover effect */
+.past-event-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.past-event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add to calendar button pulse animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(22, 163, 74, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+  }
+}
+
+.bg-green-600 {
+  animation: pulse 2s infinite;
+}
+
+/* Loading skeletons */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.skeleton-image {
+  height: 200px;
+}
+
+.skeleton-title {
+  height: 24px;
+  width: 80%;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+.skeleton-text {
+  height: 16px;
+  width: 100%;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.skeleton-text.short {
+  width: 60%;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Today highlight in calendar */
+.today {
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 0.375rem;
+  font-weight: bold;
+}
+
+/* Empty state styling */
+.empty-state {
+  background-color: #f3f4f6;
+  border-radius: 0.5rem;
+  padding: 3rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+/* Error message styling */
+.error-message {
+  background-color: #fee2e2;
+  border-left: 4px solid #ef4444;
+  color: #b91c1c;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.375rem;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 768px) {
+  .max-w-5xl {
+    width: 100%;
+  }
+  
+  .grid.md\:grid-cols-2,
+  .grid.md\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .flex.md\:flex-row {
+    flex-direction: column;
+  }
+  
+  .md\:w-1\/4, .md\:w-3\/4 {
+    width: 100%;
+  }
+  
+  .md\:pl-6 {
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+  
+  /* Better spacing for mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  h1.text-3xl {
+    font-size: 1.75rem;
+  }
+  
+  h2.text-2xl {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animations for page transitions */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container.mx-auto {
+  animation: fadeIn 0.5s ease-out;
+}
+
+section {
+  animation: fadeIn 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+section:nth-child(3) {
+  animation-delay: 0.3s;
+} 

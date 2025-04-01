@@ -1,0 +1,117 @@
+<div class="home-container mb-12">
+  <!-- Hero Section -->
+  <section class="hero bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center py-24 px-4" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/church.jpg'); background-size: cover; background-position: center;">
+    <div class="container mx-auto max-w-7xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-8">{{ 'home.welcome' | translate }}</h1>
+      <a routerLink="/about" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md transition-colors inline-block">{{ 'nav.about' | translate }}</a>
+    </div>
+  </section>
+
+  <!-- Service Times Section -->
+  <section class="service-times bg-gray-100 py-12">
+    <div class="container mx-auto max-w-7xl px-4">
+      <h2 class="text-3xl font-bold text-center mb-6">{{ 'home.service-times' | translate }}</h2>
+      <ul class="space-y-2 text-center">
+        <li class="text-lg">{{ 'home.sunday-morning' | translate }}</li>
+        <li class="text-lg">{{ 'home.sunday-evening' | translate }}</li>
+        <li class="text-lg">{{ 'home.wednesday' | translate }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Latest News & Events -->
+  <section class="news-events py-12">
+    <div class="container mx-auto max-w-7xl px-4">
+      <div class="section-header flex justify-between items-center mb-8">
+        <h2 class="text-3xl font-bold">{{ 'nav.events' | translate }}</h2>
+        <a routerLink="/events" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">{{ 'nav.events' | translate }}</a>
+      </div>
+      
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden" *ngFor="let i of [1, 2, 3]">
+          <div class="flex h-24">
+            <div class="skeleton-box w-20 h-full"></div>
+            <div class="p-4 w-full">
+              <div class="skeleton-line w-2/3 h-4 mb-2"></div>
+              <div class="skeleton-line w-full h-3 mb-1"></div>
+              <div class="skeleton-line w-1/2 h-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Events Cards -->
+      <div *ngIf="!isLoading" class="events-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Event Card (repeated for each event) -->
+        <div class="event-card bg-white rounded-lg shadow-md overflow-hidden" *ngFor="let event of events">
+          <div class="flex">
+            <div class="event-date bg-blue-600 text-white p-4 flex flex-col justify-center items-center min-w-[80px]">
+              <span class="date text-2xl font-bold">{{ event.date | date:'d' }}</span>
+              <span class="month uppercase text-sm">{{ event.date | date:'MMM' }}</span>
+            </div>
+            <div class="event-details p-4">
+              <h3 class="font-bold text-lg mb-1">{{ event.title }}</h3>
+              <p class="text-gray-600 mb-2 line-clamp-2">{{ event.description }}</p>
+              <div class="flex justify-between">
+                <span class="event-time text-gray-500 text-sm flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {{ event.time }}
+                </span>
+                <span *ngIf="event.language && event.language !== currentLanguage" 
+                      class="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
+                  {{ event.language | uppercase }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Empty State -->
+        <div *ngIf="!isLoading && events.length === 0" class="col-span-3 py-8 text-center bg-gray-50 rounded-lg">
+          <p class="text-gray-600">{{ 'events.no-upcoming' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Debug Info - Only shown in debug mode -->
+  <div class="bg-yellow-100 p-4 mb-6 rounded-lg border border-yellow-300" *ngIf="showDebugInfo">
+    <div class="flex justify-between items-center mb-2">
+      <h3 class="font-bold">Debug Info - Home Component:</h3>
+      <span class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">DEBUG MODE</span>
+    </div>
+    <p>isLoading: {{ isLoading }}</p>
+    <p>Events count: {{ events.length }}</p>
+    <p>News count: {{ news.length }}</p>
+    <p>Current Language: {{ currentLanguage }}</p>
+    
+    <div class="mt-4">
+      <h4 class="font-bold mb-2">Raw Events Data:</h4>
+      <div *ngFor="let event of events; let i = index" class="mb-2 p-2 bg-white rounded">
+        <p><strong>Event {{ i + 1 }}:</strong> {{ event.title }} ({{ event.date }})</p>
+      </div>
+      
+      <h4 class="font-bold mb-2 mt-4">Raw News Data:</h4>
+      <div *ngFor="let item of news; let i = index" class="mb-2 p-2 bg-white rounded">
+        <p><strong>News {{ i + 1 }}:</strong> {{ item.title }} ({{ item.date }})</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Debug Button (Always Visible) -->
+  <div class="fixed bottom-4 right-4 z-50">
+    <button 
+      (click)="toggleDebugMode()" 
+      class="py-2 px-4 rounded-full shadow-lg text-center font-medium text-white transition-colors flex items-center"
+      [ngClass]="showDebugInfo ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+      </svg>
+      {{ showDebugInfo ? 'Hide Debug Info' : 'Show Debug Info' }}
+    </button>
+  </div>
+</div>
+

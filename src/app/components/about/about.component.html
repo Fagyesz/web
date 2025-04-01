@@ -1,0 +1,101 @@
+<div class="container mx-auto px-4 py-12">
+  <div class="max-w-4xl mx-auto">
+    <!-- Page Title -->
+    <h1 class="text-3xl font-bold text-center mb-8">{{ 'about.title' | translate }}</h1>
+    
+    <!-- Church History Section -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">{{ 'about.history.title' | translate }}</h2>
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <p class="mb-4">{{ 'about.history.p1' | translate }}</p>
+        <p class="mb-4">{{ 'about.history.p2' | translate }}</p>
+        <p>{{ 'about.history.p3' | translate }}</p>
+      </div>
+    </section>
+    
+    <!-- Our Beliefs Section -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">{{ 'about.beliefs.title' | translate }}</h2>
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <p class="mb-4">{{ 'about.beliefs.intro' | translate }}</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>{{ 'about.beliefs.item1' | translate }}</li>
+          <li>{{ 'about.beliefs.item2' | translate }}</li>
+          <li>{{ 'about.beliefs.item3' | translate }}</li>
+          <li>{{ 'about.beliefs.item4' | translate }}</li>
+          <li>{{ 'about.beliefs.item5' | translate }}</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Leadership Section -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">{{ 'about.leadership.title' | translate }}</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="aspect-w-3 aspect-h-2">
+            <img src="assets/images/pastor.jpg" alt="Pastor" class="object-cover w-full h-full">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">{{ 'about.leadership.pastor.name' | translate }}</h3>
+            <p class="text-gray-600 mb-4">{{ 'about.leadership.pastor.title' | translate }}</p>
+            <p>{{ 'about.leadership.pastor.bio' | translate }}</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="aspect-w-3 aspect-h-2">
+            <img src="assets/images/elder.jpg" alt="Elder" class="object-cover w-full h-full">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">{{ 'about.leadership.elder.name' | translate }}</h3>
+            <p class="text-gray-600 mb-4">{{ 'about.leadership.elder.title' | translate }}</p>
+            <p>{{ 'about.leadership.elder.bio' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Service Times Section -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">{{ 'about.services.title' | translate }}</h2>
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <ul class="space-y-4">
+          <li class="flex items-start">
+            <div class="flex-shrink-0 h-6 w-6 text-blue-600">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="ml-3">
+              <p class="font-medium">{{ 'about.services.sunday-morning' | translate }}</p>
+              <p class="text-gray-600">{{ 'about.services.sunday-morning-time' | translate }}</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <div class="flex-shrink-0 h-6 w-6 text-blue-600">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="ml-3">
+              <p class="font-medium">{{ 'about.services.sunday-evening' | translate }}</p>
+              <p class="text-gray-600">{{ 'about.services.sunday-evening-time' | translate }}</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <div class="flex-shrink-0 h-6 w-6 text-blue-600">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="ml-3">
+              <p class="font-medium">{{ 'about.services.wednesday' | translate }}</p>
+              <p class="text-gray-600">{{ 'about.services.wednesday-time' | translate }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>

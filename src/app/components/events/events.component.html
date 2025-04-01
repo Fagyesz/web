@@ -1,0 +1,400 @@
+<div class="container mx-auto px-4 py-12">
+  <div class="max-w-5xl mx-auto">
+    <!-- Page Title -->
+    <h1 class="text-3xl font-bold text-center mb-8">{{ 'events.title' | translate }}</h1>
+    
+    <!-- Role debug info - only visible when debug mode is enabled -->
+    <div *ngIf="showDebugInfo" class="debug-info" style="background-color: #f0f0f0; padding: 10px; margin-bottom: 15px; font-family: monospace;">
+      <strong>DEBUG - Current user:</strong> 
+      <div *ngIf="currentUserProfile">
+        <div>Email: {{currentUserProfile.email}}</div>
+        <div>Role: {{currentUserProfile.role}}</div>
+        <div>Can access role management: {{currentUserProfile.role === 'admin' || currentUserProfile.role === 'dev'}}</div>
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+          <button (click)="forceSetAsAdmin()" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
+            FORCE SET AS ADMIN
+          </button>
+          <button (click)="initializeUsersCollection()" style="background-color: #0d6efd; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
+            INITIALIZE USERS COLLECTION
+          </button>
+        </div>
+      </div>
+      <div *ngIf="!currentUserProfile">
+        Not authenticated or profile not loaded
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+          <button (click)="forceSetAsAdmin()" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
+            FORCE CREATE ADMIN PROFILE
+          </button>
+          <button (click)="initializeUsersCollection()" style="background-color: #0d6efd; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
+            INITIALIZE USERS COLLECTION
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Debug Info - Only shown in debug mode -->
+    <div class="bg-yellow-100 p-4 mb-6 rounded-lg border border-yellow-300" *ngIf="showDebugInfo">
+      <div class="flex justify-between items-center mb-2">
+        <h3 class="font-bold">Debug Info:</h3>
+        <span class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">DEBUG MODE</span>
+      </div>
+      <p>isLoading: {{ isLoading }}</p>
+      <p>Events count: {{ events.length }}</p>
+      <p>Error: {{ errorMessage }}</p>
+      <p>Current Language: {{ currentLanguage }}</p>
+    </div>
+    
+    <!-- Raw Events Data Debug - Only shown in debug mode -->
+    <div class="bg-blue-100 p-4 mb-6 rounded-lg border border-blue-300" *ngIf="showDebugInfo">
+      <h3 class="font-bold mb-2">Raw Events Data:</h3>
+      <div *ngFor="let event of events; let i = index" class="mb-2 p-2 bg-white rounded">
+        <p><strong>Event {{ i + 1 }}:</strong></p>
+        <p>Title: {{ event.title }}</p>
+        <p>Date: {{ event.date }}</p>
+        <p>Time: {{ event.time }}</p>
+        <p>Location: {{ event.location }}</p>
+        <p>Description: {{ event.description }}</p>
+        <p>Language: {{ event.language }}</p>
+      </div>
+      <p *ngIf="events.length === 0">No events data available</p>
+    </div>
+    
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded shadow">
+      <div class="flex items-center">
+        <div class="py-1 mr-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <div>
+          <p class="font-medium">{{ errorMessage }}</p>
+        </div>
+      </div>
+      <div class="mt-3 flex justify-end">
+        <button (click)="loadEvents()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md shadow transition">
+          {{ 'events.try-again' | translate }}
+        </button>
+      </div>
+    </div>
+    
+    <!-- Upcoming Events Section -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">{{ 'events.upcoming' | translate }}</h2>
+      
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="grid gap-6 md:grid-cols-2">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" *ngFor="let i of [1, 2]">
+          <div class="skeleton skeleton-image"></div>
+          <div class="p-6">
+            <div class="skeleton skeleton-title"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text short"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Empty State -->
+      <div *ngIf="!isLoading && events.length === 0" class="bg-blue-50 rounded-lg p-8 text-center">
+        <h3 class="text-xl font-semibold mb-2">{{ 'events.no-events' | translate }}</h3>
+        <p class="text-gray-600">{{ 'events.check-back' | translate }}</p>
+      </div>
+      
+      <!-- Event Cards -->
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- Dynamic Event Cards -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" *ngFor="let event of events">
+          <div class="relative">
+            <div *ngIf="event.imageUrl" class="event-image">
+              <img [src]="getEventImageUrl(event)" alt="{{ event.title }}" class="w-full h-48 object-cover">
+            </div>
+            <img *ngIf="!event.imageUrl" [src]="'assets/images/event-placeholder.jpg'" [alt]="event.title" class="w-full h-48 object-cover">
+            <div class="absolute top-0 right-0 bg-blue-600 text-white py-1 px-3 m-2 rounded-md">
+              <span class="font-semibold">{{ 'events.upcoming' | translate }}</span>
+            </div>
+          </div>
+          <div class="p-6 flex-grow">
+            <div class="flex items-center mb-3">
+              <div class="bg-blue-100 rounded-full p-2 mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <!-- Format date nicely -->
+              <div class="flex flex-col">
+                <span class="text-gray-600">{{ event.date | date:'longDate' }}</span>
+              </div>
+              <!-- Language indicator -->
+              <div *ngIf="event.language && event.language !== currentLanguage" class="ml-auto">
+                <span class="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
+                  {{ event.language | uppercase }}
+                </span>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{{ event.title }}</h3>
+            <p class="text-gray-600 mb-4">{{ event.description }}</p>
+            <div class="flex items-center mb-3">
+              <div class="bg-blue-100 rounded-full p-2 mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span class="text-gray-600">{{ event.time }}</span>
+            </div>
+            <div class="flex items-center">
+              <div class="bg-blue-100 rounded-full p-2 mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <span class="text-gray-600">{{ event.location }}</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6">
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg mb-3 transition duration-300 transform hover:scale-105">
+              {{ 'events.learn-more' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Monthly Calendar Section -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">{{ 'events.calendar' | translate }}</h2>
+      
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex justify-between items-center mb-6">
+          <div class="skeleton w-10 h-10 rounded-md"></div>
+          <div class="skeleton w-32 h-8"></div>
+          <div class="skeleton w-10 h-10 rounded-md"></div>
+        </div>
+        <div class="grid grid-cols-7 gap-2 text-center mb-2">
+          <div class="skeleton w-full h-6" *ngFor="let i of [1,2,3,4,5,6,7]"></div>
+        </div>
+        <div class="grid grid-cols-7 gap-2 text-center">
+          <div class="skeleton w-full h-10 rounded-md" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35]"></div>
+        </div>
+      </div>
+      
+      <!-- Calendar Content -->
+      <div *ngIf="!isLoading" class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex justify-between items-center mb-6">
+          <button class="bg-gray-200 hover:bg-gray-300 rounded-md p-2 transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <h3 class="text-xl font-bold">May 2024</h3>
+          <button class="bg-gray-200 hover:bg-gray-300 rounded-md p-2 transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+        
+        <div class="grid grid-cols-7 gap-2 text-center mb-2">
+          <div class="font-semibold">Sun</div>
+          <div class="font-semibold">Mon</div>
+          <div class="font-semibold">Tue</div>
+          <div class="font-semibold">Wed</div>
+          <div class="font-semibold">Thu</div>
+          <div class="font-semibold">Fri</div>
+          <div class="font-semibold">Sat</div>
+        </div>
+        
+        <div class="grid grid-cols-7 gap-2 text-center">
+          <!-- Blank cells for days before the 1st -->
+          <div class="p-2 text-gray-400">28</div>
+          <div class="p-2 text-gray-400">29</div>
+          <div class="p-2 text-gray-400">30</div>
+          <div class="p-2 text-gray-400">1</div>
+          <div class="p-2 text-gray-400">2</div>
+          <div class="p-2 text-gray-400">3</div>
+          <div class="p-2 text-gray-400">4</div>
+          
+          <!-- Actual days of the month -->
+          <div class="p-2 bg-blue-50 rounded-md">5</div>
+          <div class="p-2">6</div>
+          <div class="p-2">7</div>
+          <div class="p-2">8</div>
+          <div class="p-2">9</div>
+          <div class="p-2">10</div>
+          <div class="p-2">11</div>
+          
+          <div class="p-2 bg-blue-50 rounded-md">12</div>
+          <div class="p-2">13</div>
+          <div class="p-2">14</div>
+          <div class="p-2 today">15</div>
+          <div class="p-2">16</div>
+          <div class="p-2">17</div>
+          <div class="p-2">18</div>
+          
+          <div class="p-2 bg-blue-50 rounded-md">19</div>
+          <div class="p-2 bg-blue-100 rounded-md">20</div>
+          <div class="p-2">21</div>
+          <div class="p-2">22</div>
+          <div class="p-2">23</div>
+          <div class="p-2">24</div>
+          <div class="p-2">25</div>
+          
+          <div class="p-2 bg-blue-50 rounded-md">26</div>
+          <div class="p-2">27</div>
+          <div class="p-2">28</div>
+          <div class="p-2">29</div>
+          <div class="p-2">30</div>
+          <div class="p-2">31</div>
+          <div class="p-2 text-gray-400">1</div>
+        </div>
+        
+        <div class="mt-4 flex flex-wrap gap-3">
+          <div class="flex items-center">
+            <div class="w-4 h-4 bg-blue-50 rounded-sm mr-2"></div>
+            <span class="text-sm">Sunday Service</span>
+          </div>
+          <div class="flex items-center">
+            <div class="w-4 h-4 bg-blue-100 rounded-sm mr-2"></div>
+            <span class="text-sm">Special Event</span>
+          </div>
+          <div class="flex items-center">
+            <div class="w-4 h-4 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs mr-2">15</div>
+            <span class="text-sm">Today</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Past Events Section -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">{{ 'events.past' | translate }}</h2>
+      
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden" *ngFor="let i of [1, 2, 3]">
+          <div class="skeleton skeleton-image"></div>
+          <div class="p-4">
+            <div class="skeleton skeleton-title"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text short mt-4"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Past Events Content -->
+      <div *ngIf="!isLoading" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Past Event 1 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden past-event-card">
+          <img src="assets/images/easter-service.jpg" alt="Easter Sunday Service" class="w-full h-48 object-cover" 
+               onerror="this.src='https://via.placeholder.com/800x400?text=Easter+Service'; this.onerror=null;">
+          <div class="p-4">
+            <div class="flex items-center text-sm text-gray-500 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              April 10, 2024
+            </div>
+            <h3 class="text-xl font-bold mb-2">Easter Sunday Service</h3>
+            <p class="text-gray-600 mb-4">Our Easter celebration was filled with joy as we commemorated the resurrection of Jesus Christ.</p>
+            
+            <div class="flex space-x-2">
+              <button (click)="addToGoogleCalendar({
+                title: 'Easter Sunday Service',
+                date: 'April 10, 2024',
+                time: '10:00 AM - 12:00 PM',
+                location: 'Main Church, Budapest',
+                description: 'Our Easter celebration was filled with joy as we commemorated the resurrection of Jesus Christ.'
+              })" class="text-blue-600 hover:text-blue-800 border border-blue-600 hover:bg-blue-50 rounded px-3 py-1 text-sm transition duration-300">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="#DB4437">
+                    <path d="M21.5 10.5H15.5V4.5C15.5 3.9 15.1 3.5 14.5 3.5H9.5C8.9 3.5 8.5 3.9 8.5 4.5V10.5H2.5C1.9 10.5 1.5 10.9 1.5 11.5V16.5C1.5 17.1 1.9 17.5 2.5 17.5H8.5V20.5C8.5 21.1 8.9 21.5 9.5 21.5H14.5C15.1 21.5 15.5 21.1 15.5 20.5V17.5H21.5C22.1 17.5 22.5 17.1 22.5 16.5V11.5C22.5 10.9 22.1 10.5 21.5 10.5Z"/>
+                  </svg>
+                  {{ 'events.add-to-calendar' | translate }}
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Past Event 2 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden past-event-card">
+          <img src="assets/images/worship-night.jpg" alt="Worship Night" class="w-full h-48 object-cover" 
+               onerror="this.src='https://via.placeholder.com/800x400?text=Worship+Night'; this.onerror=null;">
+          <div class="p-4">
+            <div class="flex items-center text-sm text-gray-500 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              March 25, 2024
+            </div>
+            <h3 class="text-xl font-bold mb-2">Worship Night</h3>
+            <p class="text-gray-600 mb-4">An evening of praise and worship with our church community featuring our worship team.</p>
+            
+            <div class="flex space-x-2">
+              <button (click)="addToGoogleCalendar({
+                title: 'Worship Night',
+                date: 'March 25, 2024',
+                time: '7:00 PM - 9:00 PM',
+                location: 'Main Sanctuary, Budapest',
+                description: 'An evening of praise and worship with our church community featuring our worship team.'
+              })" class="text-blue-600 hover:text-blue-800 border border-blue-600 hover:bg-blue-50 rounded px-3 py-1 text-sm transition duration-300">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="#DB4437">
+                    <path d="M21.5 10.5H15.5V4.5C15.5 3.9 15.1 3.5 14.5 3.5H9.5C8.9 3.5 8.5 3.9 8.5 4.5V10.5H2.5C1.9 10.5 1.5 10.9 1.5 11.5V16.5C1.5 17.1 1.9 17.5 2.5 17.5H8.5V20.5C8.5 21.1 8.9 21.5 9.5 21.5H14.5C15.1 21.5 15.5 21.1 15.5 20.5V17.5H21.5C22.1 17.5 22.5 17.1 22.5 16.5V11.5C22.5 10.9 22.1 10.5 21.5 10.5Z"/>
+                  </svg>
+                  {{ 'events.add-to-calendar' | translate }}
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Past Event 3 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden past-event-card">
+          <img src="assets/images/bible-study.jpg" alt="Bible Study Series" class="w-full h-48 object-cover" 
+               onerror="this.src='https://via.placeholder.com/800x400?text=Bible+Study'; this.onerror=null;">
+          <div class="p-4">
+            <div class="flex items-center text-sm text-gray-500 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              February 15-28, 2024
+            </div>
+            <h3 class="text-xl font-bold mb-2">Bible Study Series</h3>
+            <p class="text-gray-600 mb-4">A two-week intensive Bible study series focusing on the Gospel of John with daily sessions.</p>
+            
+            <div class="flex space-x-2">
+              <button (click)="addToGoogleCalendar({
+                title: 'Bible Study Series',
+                date: 'February 15, 2024',
+                time: '7:00 PM - 8:30 PM',
+                location: 'Church Meeting Room, Budapest',
+                description: 'A two-week intensive Bible study series focusing on the Gospel of John with daily sessions.'
+              })" class="text-blue-600 hover:text-blue-800 border border-blue-600 hover:bg-blue-50 rounded px-3 py-1 text-sm transition duration-300">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="#DB4437">
+                    <path d="M21.5 10.5H15.5V4.5C15.5 3.9 15.1 3.5 14.5 3.5H9.5C8.9 3.5 8.5 3.9 8.5 4.5V10.5H2.5C1.9 10.5 1.5 10.9 1.5 11.5V16.5C1.5 17.1 1.9 17.5 2.5 17.5H8.5V20.5C8.5 21.1 8.9 21.5 9.5 21.5H14.5C15.1 21.5 15.5 21.1 15.5 20.5V17.5H21.5C22.1 17.5 22.5 17.1 22.5 16.5V11.5C22.5 10.9 22.1 10.5 21.5 10.5Z"/>
+                  </svg>
+                  {{ 'events.add-to-calendar' | translate }}
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- Debug Button (Always Visible) -->
+<div class="fixed bottom-4 right-4 z-50">
+  <button 
+    (click)="toggleDebugMode()" 
+    class="py-2 px-4 rounded-full shadow-lg text-center font-medium text-white transition-colors flex items-center"
+    [ngClass]="showDebugInfo ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+    </svg>

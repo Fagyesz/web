@@ -1,0 +1,26 @@
+/* Additional custom styles for header if needed */
+
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  nav {
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  nav ul {
+    flex-direction: column !important;
+  }
+  
+  nav ul li {
+    margin-left: 0 !important;
+    margin-bottom: 0.5rem;
+  }
+  
+  app-language-selector {
+    margin-top: 1rem;
+  }
+} 

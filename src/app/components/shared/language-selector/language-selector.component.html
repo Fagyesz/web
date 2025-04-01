@@ -1,0 +1,13 @@
+<div class="language-selector flex gap-1">
+  <button 
+    *ngFor="let lang of languages" 
+    [class.bg-blue-600]="currentLang === lang"
+    [class.text-white]="currentLang === lang"
+    [class.bg-gray-100]="currentLang !== lang"
+    [class.text-gray-700]="currentLang !== lang"
+    (click)="switchLanguage(lang)"
+    class="border border-gray-300 rounded px-2 py-1 text-xs font-medium hover:bg-gray-200 transition-colors"
+  >
+    {{ lang.toUpperCase() }}
+  </button>
+</div> 

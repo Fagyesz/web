@@ -1,0 +1,33 @@
+<header class="bg-white shadow-md sticky top-0 z-10">
+  <div class="container mx-auto flex justify-between items-center p-4 max-w-7xl">
+    <div class="logo">
+      <a routerLink="/" class="text-xl font-bold text-gray-800 no-underline">{{ 'church.name' | translate }}</a>
+    </div>
+    
+    <nav class="flex-grow ml-10">
+      <ul class="flex space-x-6">
+        <li><a routerLink="/" routerLinkActive="text-blue-600" [routerLinkActiveOptions]="{ exact: true }" class="text-gray-700 font-medium hover:text-blue-600 transition-colors">{{ 'nav.home' | translate }}</a></li>
+        <li><a routerLink="/about" routerLinkActive="text-blue-600" class="text-gray-700 font-medium hover:text-blue-600 transition-colors">{{ 'nav.about' | translate }}</a></li>
+        <li><a routerLink="/services" routerLinkActive="text-blue-600" class="text-gray-700 font-medium hover:text-blue-600 transition-colors">{{ 'nav.services' | translate }}</a></li>
+        <li><a routerLink="/events" routerLinkActive="text-blue-600" class="text-gray-700 font-medium hover:text-blue-600 transition-colors">{{ 'nav.events' | translate }}</a></li>
+        <li><a routerLink="/sermons" routerLinkActive="text-blue-600" class="text-gray-700 font-medium hover:text-blue-600 transition-colors">{{ 'nav.sermons' | translate }}</a></li>
+        <li><a routerLink="/contact" routerLinkActive="text-blue-600" class="text-gray-700 font-medium hover:text-blue-600 transition-colors">{{ 'nav.contact' | translate }}</a></li>
+        
+        <!-- Admin Links (only show if user is authenticated and is staff) -->
+        <ng-container *ngIf="authService.isAuthenticated">
+          <!-- Show Admin Dashboard link -->
+          <li *ngIf="isStaff || isAdmin">
+            <a routerLink="/admin" routerLinkActive="text-blue-600" class="text-purple-600 font-medium hover:text-purple-700 transition-colors">
+              {{ 'nav.dashboard' | translate }}
+            </a>
+          </li>
+        </ng-container>
+      </ul>
+    </nav>
+    
+    <!-- Settings Menu -->
+    <div class="ml-4">
+      <app-settings-menu></app-settings-menu>
+    </div>
+  </div>
+</header>

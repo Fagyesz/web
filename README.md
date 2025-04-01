@@ -1,59 +1,91 @@
-# Bapti
+# Bapti - Hungarian Baptist Church Website
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+A website for Bapti Hungarian Baptist Church built with Angular and Firebase.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Responsive design for all devices
+- Home page with church information
+- About page for church history and mission
+- Services page with worship times and information
+- Events calendar for upcoming church events
+- Sermon archives
+- Contact form integrated with Firebase
 
-```bash
+## Technologies Used
+
+- Angular 17
+- Firebase (Authentication, Firestore, Hosting)
+- SCSS for styling
+- Responsive design
+- Font Awesome icons
+
+## Setup Instructions
+
+### Prerequisites
+
+- Node.js and npm installed
+- Angular CLI installed globally
+- Firebase account
+
+### Installation
+
+1. Clone the repository
+```
+git clone <repository-url>
+cd bapti
+```
+
+2. Install dependencies
+```
+npm install
+```
+
+3. Configure Firebase
+   - Create a new Firebase project at [firebase.google.com](https://firebase.google.com)
+   - Replace the Firebase configuration in `src/app/app.config.ts` with your own
+   - Enable Firestore and Authentication in your Firebase console
+
+4. Run the development server
+```
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+5. Build for production
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+6. Deploy to Firebase Hosting
+```
+firebase login
+firebase init
+firebase deploy
 ```
 
-## Running end-to-end tests
+## Project Structure
 
-For end-to-end (e2e) testing, run:
+- `src/app/components` - Angular components
+  - `home` - Home page component
+  - `about` - About page component
+  - `services` - Services page component
+  - `events` - Events page component
+  - `sermons` - Sermons page component
+  - `contact` - Contact page component
+  - `shared` - Shared components (header, footer)
+- `src/app/services` - Angular services
+  - `firebase.service.ts` - Firebase service for authentication and Firestore
+- `src/assets` - Static assets including images
 
-```bash
-ng e2e
-```
+## Domain Information
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Domain Name: bapti.hu
+- Deployed on Firebase Hosting
 
-## Additional Resources
+## License
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+For any questions or support, please contact info@bapti.hu.

@@ -1,0 +1,29 @@
+<div class="admin-grid">
+  <!-- Events Management Card -->
+  <div class="admin-card" (click)="navigateTo('/admin/events')">
+    <mat-icon>event</mat-icon>
+    <h3>{{ 'admin.events' | translate }}</h3>
+    <p>{{ 'admin.dashboard.manage-events-description' | translate }}</p>
+  </div>
+  
+  <!-- News Management Card -->
+  <div class="admin-card" (click)="navigateTo('/admin/news')">
+    <mat-icon>article</mat-icon>
+    <h3>{{ 'admin.news' | translate }}</h3>
+    <p>{{ 'admin.dashboard.manage-news-description' | translate }}</p>
+  </div>
+  
+  <!-- Role Management Card -->
+  <div class="admin-card" (click)="navigateTo('/admin/roles')">
+    <mat-icon>admin_panel_settings</mat-icon>
+    <h3>{{ 'admin.role-management' | translate }}</h3>
+    <p>{{ 'admin.role-management.description' | translate }}</p>
+  </div>
+  
+  <!-- Settings Card -->
+  <div class="admin-card" (click)="navigateTo('/settings')">
+    <mat-icon>settings</mat-icon>
+    <h3>{{ 'settings.title' | translate }}</h3>
+    <p>{{ 'admin.dashboard.manage-settings-description' | translate }}</p>
+  </div>
+</div> 

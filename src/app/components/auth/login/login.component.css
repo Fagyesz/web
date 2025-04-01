@@ -1,0 +1,24 @@
+/* Custom styles for the login component */
+
+/* Add focus effects to input fields */
+input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+/* Custom transitions for form elements */
+button, input {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effects for inputs */
+input:hover {
+  border-color: #4b70bf;
+}
+
+/* Background pattern for the login page */
+:host {
+  display: block;
+  background-color: #f9fafb;
+  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+  background-size: 20px 20px;
+} 
